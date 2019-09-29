@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="UseMap.Views.MapView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:xForms="clr-namespace:Syncfusion.SfMaps.XForms;assembly=Syncfusion.SfMaps.XForms">
+
+    <!--<StackLayout>
+    <Button Command="GoToMyCoordinateCommand" Text="Find My Place!"></Button>-->
+    <xForms:SfMaps
+        x:Name="myMap"
+        EnablePanning="True"
+        EnableZooming="True"
+        IsVisible="True"
+        MaxZoom="9"
+        MinZoom="1"
+        ZoomLevel="15">
+        <xForms:SfMaps.Layers
+            EnablePan="True"
+            LatitudeLongitudeType="Decimal"
+            LayerType="OSM"
+            ShowCoords="True">
+            <xForms:ImageryLayer x:Name="layer" GeoCoordinates="{Binding coordinate}">
+                <!--  Markers="{Binding Models}"  -->
+
+                <xForms:ImageryLayer.MarkerSettings>
+                    <xForms:MapMarkerSetting
+                        IconColor="OrangeRed"
+                        IconSize="10"
+                        LabelColor="OrangeRed"
+                        LabelSize="20" />
+                </xForms:ImageryLayer.MarkerSettings>
+                <xForms:ImageryLayer.Markers>
+                    <xForms:MapMarker
+                        Label="You Are Here!!!"
+                        Latitude="{Binding Latitude}"
+                        Longitude="{Binding Longitude}" />
+
+                </xForms:ImageryLayer.Markers>
+
+            </xForms:ImageryLayer>
+
+        </xForms:SfMaps.Layers>
+    </xForms:SfMaps>
+    <!--</StackLayout>-->
+
+
+</ContentPage>
